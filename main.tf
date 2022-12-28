@@ -25,6 +25,15 @@ provider "pingone" {
   force_delete_production_type = false
 }
 
+# DaVinci Provider
+
+provider "davinci" {
+  username       = var.admin_username
+  password       = var.admin_password
+  region         = var.region
+  environment_id = var.admin_environment_id
+}
+
 # Find user in environment based on username
 
 data "pingone_user" "admin_user" {
