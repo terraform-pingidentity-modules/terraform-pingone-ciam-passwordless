@@ -4,9 +4,12 @@ resource "davinci_application" "Packages" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
   name           = "solutions.pingidentity.cloud"
   oauth {
-    enabled = false
+    enabled = true
     values {
-      enabled = false
+      allowed_grants                = ["authorizationCode"]
+      allowed_scopes                = ["openid", "profile"]
+      enabled                       = true
+      enforce_signed_request_openid = false
     }
   }
   policies {
