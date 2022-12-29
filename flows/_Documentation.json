@@ -5,15 +5,27 @@
     "httpConnector",
     "functionsConnector"
   ],
-  "createdDate": 1671559444391,
-  "currentVersion": 11,
+  "createdDate": 1672337123973,
+  "currentVersion": 37,
   "customerId": "ab7d566d93c42380f27682b13a857079",
-  "deployedDate": 1671684676065,
+  "deployedDate": 1672337125882,
   "description": "",
   "flowStatus": "enabled",
-  "name": "_README",
-  "publishedVersion": 11,
-  "updatedDate": 1671684676065,
+  "name": "_Documentation",
+  "publishedVersion": 37,
+  "settings": {
+    "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
+    "intermediateLoadingScreenCSS": {},
+    "intermediateLoadingScreenHTML": {},
+    "useCustomCSS": true,
+    "cssLinks": [
+      "https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css",
+      "https://gsa-cdn.glitch.me/ciampasswordless.css",
+      "https://assets.pingone.com/ux/end-user-nano/0.1.0-alpha.0/end-user-nano.css"
+    ],
+    "logLevel": 3
+  },
+  "updatedDate": 1672337125882,
   "flowId": "132de6947b0594705d34248bc31252d6",
   "graphData": {
     "elements": {
@@ -31,16 +43,16 @@
             "type": "trigger",
             "properties": {
               "customHTML": {
-                "value": "<pre id=\"markdown-conent\">\n# Passwordless Package 1\n\n## Integration\nDetails...\n</pre>\n\n<button>"
+                "value": "<div\n    class=\"bg-light d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 bottom-0 end-0 overflow-auto\">\n    <div style=\"max-width: 90%; min-width: 90%; width: 90%\">\n        <div class=\"card shadow mb-5\">\n            <h1 class=\"text-center mb-4\">Terraform Module Doc (README.md)</h1>\n            <pre>\n                <div class=\"pre\">\n# Ping Identity CIAM Passwordless Package Solution\n\nThis module provides a set of workflows to implment a CIAM Passwordless experiance using PingOne MFA including:\n\n* Passkey Authentication\n* Applicaiton Based Auth (TOTP)\n* Email/Mobile OTP\n* MagicLink\n\n## Usage\n\n```hcl\nmodule \"pingone-ciam-passwordless\" {\n  source = \"terraform-pingidentity-modules/ciam-passwordless/pingone\"\n\n  admin_client_id                = \"<<admin-client-guid>>\"\n  admin_client_secret            = \"<<admin-secret>>\"\n  admin_environment_id           = \"<<admin-env-guid>>\"\n  license_name                   = \"<<license-name>>>\"\n  region                         = \"NorthAmerica\"\n  admin_username                 = \"bob@example.com\"\n  admin_password                 = \"secret\"\n  target_environment_name        = \"pingone-ciam-passwordless\"\n  target_environment_description = \"CIAM Passwordless Envrionment\"\n  target_environment_type        = \"SANDBOX\"\n  target_population_name         = \"My Population\"\n  target_population_description  = \"My Population Description\"\n}\n```\n                </div>\n            </pre>\n        </div>\n    </div>\n</div>"
               },
               "nodeTitle": {
-                "value": "Terraform Module"
+                "value": "Terraform"
               }
             }
           },
           "position": {
-            "x": 900,
-            "y": 210
+            "x": 780,
+            "y": 390
           },
           "group": "nodes",
           "removed": false,
@@ -64,17 +76,17 @@
             "type": "trigger",
             "properties": {
               "customHTML": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"<pre>\\n# Passwordless Package 2\\n\\n## Integration\\nDetails...\\n</pre>\"\n      }\n    ]\n  }\n]"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"<div class=\\\"docs integration\\\">\\n# Integration Docs\\n\\n</div>\"\n      }\n    ]\n  }\n]"
               },
               "nodeTitle": {
-                "value": "Marketing"
+                "value": "Integration"
               }
             },
             "idUnique": "4cst0bpsuk"
           },
           "position": {
-            "x": 900,
-            "y": 330
+            "x": 780,
+            "y": 480
           },
           "group": "nodes",
           "removed": false,
@@ -98,17 +110,17 @@
             "type": "trigger",
             "properties": {
               "customHTML": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"<pre>\\n# Passwordless Package 2\\n\\n## Integration\\nDetails...\\n</pre>\"\n      }\n    ]\n  }\n]"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"<div class=\\\"docs datasheet\\\">\\n# DataSheet Docs\\n\\n</div>\"\n      }\n    ]\n  }\n]"
               },
               "nodeTitle": {
-                "value": "Install"
+                "value": "DataSheet"
               }
             },
             "idUnique": "8bql8w6bvg"
           },
           "position": {
-            "x": 900,
-            "y": 90
+            "x": 780,
+            "y": 300
           },
           "group": "nodes",
           "removed": false,
@@ -132,17 +144,26 @@
             "type": "trigger",
             "properties": {
               "customHTML": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"<pre>\\n# Passwordless Package 1\\n\\n## Integration\\nDetails...\\n</pre>\"\n      }\n    ]\n  }\n]"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"<div class=\\\"bg-light d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 bottom-0 end-0 overflow-auto\\\">\\n    <div style=\\\"max-width: 400px; min-width: 400px; width: 100%\\\">\\n        <div class=\\\"card shadow mb-5\\\">\\n            <div class=\\\"card-body p-5 d-flex flex-column\\\">\\n                <img class=\\\"companyLogo align-self-center mb-5\\\" alt=\\\"CIAM Passwordless\\\" />\\n                <h1 class=\\\"text-center mb-4\\\">CIAM Passwordless Documentation</h1>\\n                <p class=\\\"text-muted text-center\\\">Select a item below to view documentation.</p>\\n                <p class=\\\"text-danger mdi mdi-alert-circle\\\" data-id=\\\"feedback\\\" data-skcomponent=\\\"skerror\\\"></p>\\n                <form id=\\\"documenationForm\\\" data-id=\\\"documenationForm\\\">\\n                \\n                    <div class=\\\"d-flex flex-column\\\">\\n                        <button data-id=\\\"button\\\" type=\\\"submit\\\" class=\\\"btn btn-primary mb-3\\\" data-skcomponent=\\\"skbutton\\\"\\n                            data-skbuttontype=\\\"form-submit\\\" data-skform=\\\"documenationForm\\\" id=\\\"btnIntegration\\\" \\n                            data-skbuttonvalue=\\\"Integration\\\">\\n                            Integration\\n                        </button>\\n                        <button data-id=\\\"button\\\" type=\\\"submit\\\" class=\\\"btn btn-primary mb-3\\\" data-skcomponent=\\\"skbutton\\\"\\n                            data-skbuttontype=\\\"form-submit\\\" data-skform=\\\"documenationForm\\\" id=\\\"btnTerraform\\\" \\n                            data-skbuttonvalue=\\\"Terraform\\\">\\n                            Terraform\\n                        </button>\\n                        <button data-id=\\\"button\\\" type=\\\"submit\\\" class=\\\"btn btn-primary mb-3\\\" data-skcomponent=\\\"skbutton\\\"\\n                            data-skbuttontype=\\\"form-submit\\\" data-skform=\\\"documenationForm\\\" id=\\\"btnDataSheet\\\" \\n                            data-skbuttonvalue=\\\"DataSheet\\\">\\n                            DataSheet\\n                        </button>\\n                        \\n                    </div>\\n                </form>\\n            </div>\\n        </div>\\n    </div>\\n</div>\\n\"\n      }\n    ]\n  }\n]"
               },
               "nodeTitle": {
-                "value": "Docs"
+                "value": "Doc Menu"
+              },
+              "formFieldsList": {
+                "value": [
+                  {
+                    "preferredControlType": "textField",
+                    "preferredDataType": "string",
+                    "propertyName": "buttonValue"
+                  }
+                ]
               }
             },
             "idUnique": "905ta6ibhb"
           },
           "position": {
-            "x": 420,
-            "y": 90
+            "x": 240,
+            "y": 240
           },
           "group": "nodes",
           "removed": false,
@@ -160,8 +181,8 @@
             "label": "Evaluator"
           },
           "position": {
-            "x": 533.5,
-            "y": 86.75
+            "x": 360,
+            "y": 240
           },
           "group": "nodes",
           "removed": false,
@@ -185,25 +206,29 @@
             "type": "trigger",
             "properties": {
               "leftValueA": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"buttonValue\"\n      }\n    ]\n  }\n]"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"http.svg\",\n        \"url\": \"buttonValue\",\n        \"data\": \"{{local.mo7hloa14z.payload.output.buttonValue}}\",\n        \"tooltip\": \"{{local.mo7hloa14z.payload.output.buttonValue}}\",\n        \"children\": [\n          {\n            \"text\": \"buttonValue\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               },
               "rightValueMultiple": {
                 "value": [
                   {
-                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Install\"\n      }\n    ]\n  }\n]",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"DataSheet\"\n      }\n    ]\n  }\n]",
                     "id": "qqt2qdvv1v"
                   },
                   {
                     "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Terraform\"\n      }\n    ]\n  }\n]",
                     "id": "t88unfr246"
+                  },
+                  {
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"Integration\"\n      }\n    ]\n  }\n]",
+                    "id": "rmxx1qw9xw"
                   }
                 ]
               }
             }
           },
           "position": {
-            "x": 647,
-            "y": 83.5
+            "x": 510,
+            "y": 240
           },
           "group": "nodes",
           "removed": false,
@@ -220,8 +245,8 @@
             "nodeType": "EVAL"
           },
           "position": {
-            "x": 780,
-            "y": 90
+            "x": 660,
+            "y": 300
           },
           "group": "nodes",
           "removed": false,
@@ -238,8 +263,26 @@
             "nodeType": "EVAL"
           },
           "position": {
-            "x": 780,
-            "y": 210
+            "x": 660,
+            "y": 390
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "wti7mlsxgd",
+            "nodeType": "EVAL"
+          },
+          "position": {
+            "x": 660,
+            "y": 480
           },
           "group": "nodes",
           "removed": false,
@@ -267,7 +310,7 @@
                 "value": "#000000ff"
               },
               "annotation": {
-                "value": "######################################################################################################## #                          Name : _README                                                              # #                    Created by : Ping Identity                                                        # #                       Version : 1.0.0                                                                # #                  Release date : Wed Dec 28 2022 16:04:59 GMT-0600 (Central Standard Time)            # #                       Support : https://support.pingidentity.com                                     # #              Terraform Module : /tmp/terraform-pingone-ciam-passwordless                             # #                               :                                                                      # #                               :                                                                      # ######################################################################################################## "
+                "value": "######################################################################################################## #                          Name : _Documentation                                                       # #                    Created by : Ping Identity                                                        # #                       Version : 1.0.0                                                                # #                  Release date : Thu Dec 29 2022 12:07:51 GMT-0600 (Central Standard Time)            # #                       Support : https://support.pingidentity.com                                     # #              Terraform Module : /tmp/terraform-pingone-ciam-passwordless                             # #                               :                                                                      # #                               :                                                                      # ######################################################################################################## "
               },
               "width": {
                 "value": 1008
@@ -429,6 +472,45 @@
           "grabbable": true,
           "pannable": true,
           "classes": ""
+        },
+        {
+          "data": {
+            "id": "d7mnxzkij9",
+            "source": "1uh3xhqwmj",
+            "target": "wti7mlsxgd",
+            "multiValueSourceId": "rmxx1qw9xw"
+          },
+          "position": {
+            "x": 64,
+            "y": 132
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "sa2s90uq3q",
+            "source": "wti7mlsxgd",
+            "target": "nnr6u049j4"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
         }
       ]
     },
@@ -450,5 +532,5 @@
     }
   },
   "flowColor": "#AFD5FF",
-  "savedDate": 1671559444322
+  "savedDate": 1672337123940
 }

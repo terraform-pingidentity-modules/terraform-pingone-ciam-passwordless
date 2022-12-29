@@ -1,7 +1,7 @@
 
-resource "davinci_flow" "_README" {
+resource "davinci_flow" "_Documentation" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/_README.json")
+  flow_json      = file("${path.module}/flows/_Documentation.json")
 }
 
 resource "davinci_flow" "CIAM-Passwordless-000-Demo" {
