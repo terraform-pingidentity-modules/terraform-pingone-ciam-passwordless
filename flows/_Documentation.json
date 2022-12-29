@@ -5,14 +5,14 @@
     "httpConnector",
     "functionsConnector"
   ],
-  "createdDate": 1672337123973,
-  "currentVersion": 37,
+  "createdDate": 1672337906341,
+  "currentVersion": 38,
   "customerId": "ab7d566d93c42380f27682b13a857079",
-  "deployedDate": 1672337125882,
+  "deployedDate": 1672337908195,
   "description": "",
   "flowStatus": "enabled",
   "name": "_Documentation",
-  "publishedVersion": 37,
+  "publishedVersion": 38,
   "settings": {
     "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
     "intermediateLoadingScreenCSS": {},
@@ -25,7 +25,7 @@
     ],
     "logLevel": 3
   },
-  "updatedDate": 1672337125882,
+  "updatedDate": 1672337908196,
   "flowId": "132de6947b0594705d34248bc31252d6",
   "graphData": {
     "elements": {
@@ -43,7 +43,7 @@
             "type": "trigger",
             "properties": {
               "customHTML": {
-                "value": "<div\n    class=\"bg-light d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 bottom-0 end-0 overflow-auto\">\n    <div style=\"max-width: 90%; min-width: 90%; width: 90%\">\n        <div class=\"card shadow mb-5\">\n            <h1 class=\"text-center mb-4\">Terraform Module Doc (README.md)</h1>\n            <pre>\n                <div class=\"pre\">\n# Ping Identity CIAM Passwordless Package Solution\n\nThis module provides a set of workflows to implment a CIAM Passwordless experiance using PingOne MFA including:\n\n* Passkey Authentication\n* Applicaiton Based Auth (TOTP)\n* Email/Mobile OTP\n* MagicLink\n\n## Usage\n\n```hcl\nmodule \"pingone-ciam-passwordless\" {\n  source = \"terraform-pingidentity-modules/ciam-passwordless/pingone\"\n\n  admin_client_id                = \"<<admin-client-guid>>\"\n  admin_client_secret            = \"<<admin-secret>>\"\n  admin_environment_id           = \"<<admin-env-guid>>\"\n  license_name                   = \"<<license-name>>>\"\n  region                         = \"NorthAmerica\"\n  admin_username                 = \"bob@example.com\"\n  admin_password                 = \"secret\"\n  target_environment_name        = \"pingone-ciam-passwordless\"\n  target_environment_description = \"CIAM Passwordless Envrionment\"\n  target_environment_type        = \"SANDBOX\"\n  target_population_name         = \"My Population\"\n  target_population_description  = \"My Population Description\"\n}\n```\n                </div>\n            </pre>\n        </div>\n    </div>\n</div>"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"<div\\n    class=\\\"bg-light d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 bottom-0 end-0 overflow-auto\\\">\\n    <div style=\\\"max-width: 90%; min-width: 90%; width: 90%\\\">\"\n      },\n      {\n        \"text\": \"\\n        <h1 class=\\\"text-center mb-4\\\">Terraform Module Docs</h1>\"\n      },\n      {\n        \"text\": \"\\n        <div class=\\\"card shadow mb-5\\\">\\n            <pre>\\n                <div id=\\\"README.md\\\" class=\\\"terraform-docs\\\">\\n# Ping Identity CIAM Passwordless Package Solution\\n\\nThis module provides a set of workflows to implment a CIAM Passwordless experiance using PingOne MFA including:\\n\\n* Passkey Authentication\\n* Applicaiton Based Auth (TOTP)\\n* Email/Mobile OTP\\n* MagicLink\\n\\n## Usage\\n\\n```hcl\\nmodule \\\"pingone-ciam-passwordless\\\" {\\n  source = \\\"terraform-pingidentity-modules/ciam-passwordless/pingone\\\"\\n\\n  admin_client_id                = \\\"<<admin-client-guid>>\\\"\\n  admin_client_secret            = \\\"<<admin-secret>>\\\"\\n  admin_environment_id           = \\\"<<admin-env-guid>>\\\"\\n  license_name                   = \\\"<<license-name>>>\\\"\\n  region                         = \\\"NorthAmerica\\\"\\n  admin_username                 = \\\"bob@example.com\\\"\\n  admin_password                 = \\\"secret\\\"\\n  target_environment_name        = \\\"pingone-ciam-passwordless\\\"\\n  target_environment_description = \\\"CIAM Passwordless Envrionment\\\"\\n  target_environment_type        = \\\"SANDBOX\\\"\\n  target_population_name         = \\\"My Population\\\"\\n  target_population_description  = \\\"My Population Description\\\"\\n}\\n```\\n                </div>\\n            </pre>\\n        </div>\\n    </div>\\n</div>\"\n      }\n    ]\n  }\n]"
               },
               "nodeTitle": {
                 "value": "Terraform"
@@ -310,7 +310,7 @@
                 "value": "#000000ff"
               },
               "annotation": {
-                "value": "######################################################################################################## #                          Name : _Documentation                                                       # #                    Created by : Ping Identity                                                        # #                       Version : 1.0.0                                                                # #                  Release date : Thu Dec 29 2022 12:13:27 GMT-0600 (Central Standard Time)            # #                       Support : https://support.pingidentity.com                                     # #              Terraform Module : /tmp/terraform-pingone-ciam-passwordless                             # #                               :                                                                      # #                               :                                                                      # ######################################################################################################## "
+                "value": "######################################################################################################## #                          Name : _Documentation                                                       # #                    Created by : Ping Identity                                                        # #                       Version : 1.0.0                                                                # #                  Release date : Thu Dec 29 2022 12:20:56 GMT-0600 (Central Standard Time)            # #                       Support : https://support.pingidentity.com                                     # #              Terraform Module : /tmp/terraform-pingone-ciam-passwordless                             # #                               :                                                                      # #                               :                                                                      # ######################################################################################################## "
               },
               "width": {
                 "value": 1008
@@ -532,5 +532,5 @@
     }
   },
   "flowColor": "#AFD5FF",
-  "savedDate": 1672337123940
+  "savedDate": 1672337906269
 }
