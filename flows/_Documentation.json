@@ -5,8 +5,8 @@
     "httpConnector",
     "functionsConnector"
   ],
-  "createdDate": 1672337906341,
-  "currentVersion": 38,
+  "createdDate": 1672350808074,
+  "currentVersion": 47,
   "customerId": "ab7d566d93c42380f27682b13a857079",
   "deployedDate": 1672337908195,
   "description": "",
@@ -23,9 +23,13 @@
       "https://gsa-cdn.glitch.me/ciampasswordless.css",
       "https://assets.pingone.com/ux/end-user-nano/0.1.0-alpha.0/end-user-nano.css"
     ],
-    "logLevel": 3
+    "logLevel": 3,
+    "useCSP": true,
+    "useBetaAlgorithm": true,
+    "requireAuthenticationToInitiate": true,
+    "scrubSensitiveInfo": true
   },
-  "updatedDate": 1672337908196,
+  "updatedDate": 1672350808082,
   "flowId": "132de6947b0594705d34248bc31252d6",
   "graphData": {
     "elements": {
@@ -310,7 +314,7 @@
                 "value": "#000000ff"
               },
               "annotation": {
-                "value": "######################################################################################################## #                          Name : _Documentation                                                       # #                    Created by : Ping Identity                                                        # #                       Version : 1.0.0                                                                # #                  Release date : Thu Dec 29 2022 13:20:33 GMT-0600 (Central Standard Time)            # #                       Support : https://support.pingidentity.com                                     # #              Terraform Module : /tmp/terraform-pingone-ciam-passwordless                             # #                               :                                                                      # #                               :                                                                      # ######################################################################################################## "
+                "value": "######################################################################################################## #                          Name : _Documentation                                                       # #                    Created by : Ping Identity                                                        # #                       Version : 1.0.0                                                                # #                  Release date : Thu Dec 29 2022 16:11:41 GMT-0600 (Central Standard Time)            # #                       Support : https://support.pingidentity.com                                     # #              Terraform Module : /tmp/terraform-pingone-ciam-passwordless                             # #                               :                                                                      # #                               :                                                                      # ######################################################################################################## "
               },
               "width": {
                 "value": 1008
@@ -532,5 +536,5 @@
     }
   },
   "flowColor": "#AFD5FF",
-  "savedDate": 1672337906269
+  "savedDate": 1672350808045
 }
