@@ -2,6 +2,9 @@
 resource "davinci_flow" "_Documentation" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
   flow_json      = file("${path.module}/flows/_Documentation.json")
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-000-Demo" {
@@ -29,6 +32,9 @@ resource "davinci_flow" "CIAM-Passwordless-000-Demo" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-001-AuthN" {
@@ -61,6 +67,9 @@ resource "davinci_flow" "CIAM-Passwordless-001-AuthN" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-001-Manage-Devices" {
@@ -97,6 +106,9 @@ resource "davinci_flow" "CIAM-Passwordless-001-Manage-Devices" {
     connection_name = davinci_connection.flowConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-001-Profile-Management" {
@@ -116,6 +128,9 @@ resource "davinci_flow" "CIAM-Passwordless-001-Profile-Management" {
     connection_name = davinci_connection.flowConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-001-Registration" {
@@ -135,6 +150,9 @@ resource "davinci_flow" "CIAM-Passwordless-001-Registration" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-002-AuthN-FIDO" {
@@ -160,6 +178,9 @@ resource "davinci_flow" "CIAM-Passwordless-002-AuthN-FIDO" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-002-AuthN-MagicLink" {
@@ -185,6 +206,9 @@ resource "davinci_flow" "CIAM-Passwordless-002-AuthN-MagicLink" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-002-AuthN-OTP" {
@@ -200,6 +224,9 @@ resource "davinci_flow" "CIAM-Passwordless-002-AuthN-OTP" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-002-Edit-Device" {
@@ -215,6 +242,9 @@ resource "davinci_flow" "CIAM-Passwordless-002-Edit-Device" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-002-Register-FIDO-Mobile" {
@@ -239,6 +269,9 @@ resource "davinci_flow" "CIAM-Passwordless-002-Register-FIDO-Mobile" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-002-Register-OTP" {
@@ -254,6 +287,9 @@ resource "davinci_flow" "CIAM-Passwordless-002-Register-OTP" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "CIAM-Passwordless-003-Register-FIDO-Device" {
@@ -274,6 +310,9 @@ resource "davinci_flow" "CIAM-Passwordless-003-Register-FIDO-Device" {
     connection_name = davinci_connection.devicePolicyConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_flow" "importfrombuild-package" {
@@ -301,4 +340,7 @@ resource "davinci_flow" "importfrombuild-package" {
     connection_name = davinci_connection.nodeConnector.name
   }
 
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }

@@ -5,6 +5,10 @@ resource "davinci_variable" "attestationValue" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "CIAM-Passwordless-companyName" {
@@ -13,6 +17,10 @@ resource "davinci_variable" "CIAM-Passwordless-companyName" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "deviceNickname" {
@@ -21,6 +29,10 @@ resource "davinci_variable" "deviceNickname" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "deviceTypesArray" {
@@ -29,6 +41,10 @@ resource "davinci_variable" "deviceTypesArray" {
   context        = "flowInstance"
   description    = ""
   type           = "object"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "displayAsSubflow" {
@@ -37,6 +53,10 @@ resource "davinci_variable" "displayAsSubflow" {
   context        = "flowInstance"
   description    = ""
   type           = "boolean"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "emailAddress" {
@@ -45,6 +65,10 @@ resource "davinci_variable" "emailAddress" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "errorCode" {
@@ -53,6 +77,10 @@ resource "davinci_variable" "errorCode" {
   context        = "flowInstance"
   description    = ""
   type           = "number"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "errorMessage" {
@@ -61,6 +89,10 @@ resource "davinci_variable" "errorMessage" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "errorMsg" {
@@ -69,6 +101,10 @@ resource "davinci_variable" "errorMsg" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "fidoButtonState" {
@@ -77,6 +113,10 @@ resource "davinci_variable" "fidoButtonState" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "FIDOOrigin" {
@@ -85,6 +125,10 @@ resource "davinci_variable" "FIDOOrigin" {
   context        = "flowInstance"
   description    = "https://bank.ciam.sandbox.ciamsgo.com"
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "FIDORelyingParty" {
@@ -93,6 +137,10 @@ resource "davinci_variable" "FIDORelyingParty" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "fidoRelyingPartyIds" {
@@ -101,6 +149,10 @@ resource "davinci_variable" "fidoRelyingPartyIds" {
   context        = "company"
   description    = ""
   type           = "object"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "id" {
@@ -109,6 +161,10 @@ resource "davinci_variable" "id" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "is1stDeviceWebAuthnCompatible" {
@@ -117,6 +173,10 @@ resource "davinci_variable" "is1stDeviceWebAuthnCompatible" {
   context        = "flowInstance"
   description    = "Whether the 1st device can make use of the WebAuthn API"
   type           = "boolean"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "logoUrl" {
@@ -125,6 +185,10 @@ resource "davinci_variable" "logoUrl" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "origin" {
@@ -133,6 +197,10 @@ resource "davinci_variable" "origin" {
   context        = "flowInstance"
   description    = "FIDO2 origin"
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "originURL" {
@@ -141,6 +209,10 @@ resource "davinci_variable" "originURL" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "p1AssertionId" {
@@ -149,6 +221,10 @@ resource "davinci_variable" "p1AssertionId" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "p1DeviceAuthenticationStatus" {
@@ -157,6 +233,10 @@ resource "davinci_variable" "p1DeviceAuthenticationStatus" {
   context        = "flowInstance"
   description    = "Defines the authentication action the user should preform"
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "p1DeviceId" {
@@ -165,6 +245,10 @@ resource "davinci_variable" "p1DeviceId" {
   context        = "flowInstance"
   description    = "local device ID variable to manage the most current user device being used"
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "p1RiskEvaluationStatus" {
@@ -173,6 +257,10 @@ resource "davinci_variable" "p1RiskEvaluationStatus" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "p1RiskLow" {
@@ -181,6 +269,10 @@ resource "davinci_variable" "p1RiskLow" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "p1RiskMedium" {
@@ -189,6 +281,10 @@ resource "davinci_variable" "p1RiskMedium" {
   context        = "flowInstance"
   description    = "Medium Risk"
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "p1UserId" {
@@ -197,6 +293,10 @@ resource "davinci_variable" "p1UserId" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "pingOneRiskPolicyId" {
@@ -205,6 +305,10 @@ resource "davinci_variable" "pingOneRiskPolicyId" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "populationId" {
@@ -213,6 +317,10 @@ resource "davinci_variable" "populationId" {
   context        = "flowInstance"
   description    = "a8abf169-0ba3-42fb-a3e0-451d2b064ce7"
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "publicKeyCredentialCreationOptions" {
@@ -221,6 +329,10 @@ resource "davinci_variable" "publicKeyCredentialCreationOptions" {
   context        = "flowInstance"
   description    = "Options for creating a public key to use for FIDO2"
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "publicKeyCredentialRequestOptions" {
@@ -229,6 +341,10 @@ resource "davinci_variable" "publicKeyCredentialRequestOptions" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "registrationPopulationId" {
@@ -237,6 +353,10 @@ resource "davinci_variable" "registrationPopulationId" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "relyingParty" {
@@ -245,6 +365,10 @@ resource "davinci_variable" "relyingParty" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "relyingPartyID" {
@@ -253,6 +377,10 @@ resource "davinci_variable" "relyingPartyID" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "teleportReturnValue" {
@@ -261,6 +389,10 @@ resource "davinci_variable" "teleportReturnValue" {
   context        = "flowInstance"
   description    = ""
   type           = "boolean"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "testUser" {
@@ -269,6 +401,10 @@ resource "davinci_variable" "testUser" {
   context        = "user"
   description    = "This is a test User"
   type           = "object"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "userAction" {
@@ -277,6 +413,10 @@ resource "davinci_variable" "userAction" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "userID" {
@@ -285,6 +425,10 @@ resource "davinci_variable" "userID" {
   context        = "flowInstance"
   description    = "PingOne user id"
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 
 resource "davinci_variable" "verifyCode" {
@@ -293,4 +437,8 @@ resource "davinci_variable" "verifyCode" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }

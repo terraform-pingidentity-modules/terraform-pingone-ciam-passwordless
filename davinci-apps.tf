@@ -27,6 +27,10 @@ resource "davinci_application" "Documentation" {
       enforce_signed_request = true
     }
   }
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
 # All other data/resources can occur after the first DV read action
 
@@ -56,4 +60,8 @@ resource "davinci_application" "Packages" {
       enforce_signed_request = true
     }
   }
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
 }
