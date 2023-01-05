@@ -3,7 +3,7 @@
 
 resource "davinci_application" "Documentation" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  name           = "solutions.pingidentity.cloud"
+  name           = "Documentation"
   oauth {
     enabled = true
     values {
@@ -36,7 +36,7 @@ resource "davinci_application" "Documentation" {
 
 resource "davinci_application" "Packages" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  name           = "solutions.pingidentity.cloud"
+  name           = "Packages"
   oauth {
     enabled = true
     values {
