@@ -263,6 +263,14 @@ resource "davinci_variable" "teleportReturnValue" {
   type           = "boolean"
 }
 
+resource "davinci_variable" "testUser" {
+  environment_id = resource.pingone_environment.my_environment.id
+  name           = "testUser"
+  context        = "user"
+  description    = "This is a test User"
+  type           = "object"
+}
+
 resource "davinci_variable" "userAction" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "userAction"
