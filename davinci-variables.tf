@@ -1,5 +1,5 @@
 
-resource "davinci_variable" "attestationValue_flowInstance" {
+resource "davinci_variable" "attestationValue" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "attestationValue"
   context        = "flowInstance"
@@ -7,7 +7,7 @@ resource "davinci_variable" "attestationValue_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "CIAM-Passwordless-companyName_flowInstance" {
+resource "davinci_variable" "CIAM-Passwordless-companyName" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "CIAM-Passwordless-companyName"
   context        = "flowInstance"
@@ -15,7 +15,7 @@ resource "davinci_variable" "CIAM-Passwordless-companyName_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "deviceNickname_flowInstance" {
+resource "davinci_variable" "deviceNickname" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "deviceNickname"
   context        = "flowInstance"
@@ -23,7 +23,7 @@ resource "davinci_variable" "deviceNickname_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "deviceTypesArray_flowInstance" {
+resource "davinci_variable" "deviceTypesArray" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "deviceTypesArray"
   context        = "flowInstance"
@@ -31,7 +31,7 @@ resource "davinci_variable" "deviceTypesArray_flowInstance" {
   type           = "object"
 }
 
-resource "davinci_variable" "displayAsSubflow_flowInstance" {
+resource "davinci_variable" "displayAsSubflow" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "displayAsSubflow"
   context        = "flowInstance"
@@ -39,7 +39,7 @@ resource "davinci_variable" "displayAsSubflow_flowInstance" {
   type           = "boolean"
 }
 
-resource "davinci_variable" "emailAddress_flowInstance" {
+resource "davinci_variable" "emailAddress" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "emailAddress"
   context        = "flowInstance"
@@ -47,7 +47,7 @@ resource "davinci_variable" "emailAddress_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "errorCode_flowInstance" {
+resource "davinci_variable" "errorCode" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "errorCode"
   context        = "flowInstance"
@@ -55,7 +55,7 @@ resource "davinci_variable" "errorCode_flowInstance" {
   type           = "number"
 }
 
-resource "davinci_variable" "errorMessage_flowInstance" {
+resource "davinci_variable" "errorMessage" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "errorMessage"
   context        = "flowInstance"
@@ -63,7 +63,7 @@ resource "davinci_variable" "errorMessage_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "errorMsg_flowInstance" {
+resource "davinci_variable" "errorMsg" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "errorMsg"
   context        = "flowInstance"
@@ -71,7 +71,7 @@ resource "davinci_variable" "errorMsg_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "fidoButtonState_flowInstance" {
+resource "davinci_variable" "fidoButtonState" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "fidoButtonState"
   context        = "flowInstance"
@@ -79,7 +79,7 @@ resource "davinci_variable" "fidoButtonState_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "FIDOOrigin_flowInstance" {
+resource "davinci_variable" "FIDOOrigin" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "FIDOOrigin"
   context        = "flowInstance"
@@ -87,7 +87,7 @@ resource "davinci_variable" "FIDOOrigin_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "FIDORelyingParty_flowInstance" {
+resource "davinci_variable" "FIDORelyingParty" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "FIDORelyingParty"
   context        = "flowInstance"
@@ -95,7 +95,7 @@ resource "davinci_variable" "FIDORelyingParty_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "fidoRelyingPartyIds_company" {
+resource "davinci_variable" "fidoRelyingPartyIds" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "fidoRelyingPartyIds"
   context        = "company"
@@ -103,7 +103,7 @@ resource "davinci_variable" "fidoRelyingPartyIds_company" {
   type           = "object"
 }
 
-resource "davinci_variable" "id_flowInstance" {
+resource "davinci_variable" "id" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "id"
   context        = "flowInstance"
@@ -111,7 +111,7 @@ resource "davinci_variable" "id_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "is1stDeviceWebAuthnCompatible_flowInstance" {
+resource "davinci_variable" "is1stDeviceWebAuthnCompatible" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "is1stDeviceWebAuthnCompatible"
   context        = "flowInstance"
@@ -119,7 +119,7 @@ resource "davinci_variable" "is1stDeviceWebAuthnCompatible_flowInstance" {
   type           = "boolean"
 }
 
-resource "davinci_variable" "logoUrl_flowInstance" {
+resource "davinci_variable" "logoUrl" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "logoUrl"
   context        = "flowInstance"
@@ -127,7 +127,7 @@ resource "davinci_variable" "logoUrl_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "origin_flowInstance" {
+resource "davinci_variable" "origin" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "origin"
   context        = "flowInstance"
@@ -135,7 +135,7 @@ resource "davinci_variable" "origin_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "originURL_flowInstance" {
+resource "davinci_variable" "originURL" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "originURL"
   context        = "flowInstance"
@@ -143,7 +143,7 @@ resource "davinci_variable" "originURL_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "p1AssertionId_flowInstance" {
+resource "davinci_variable" "p1AssertionId" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "p1AssertionId"
   context        = "flowInstance"
@@ -151,7 +151,7 @@ resource "davinci_variable" "p1AssertionId_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "p1DeviceAuthenticationStatus_flowInstance" {
+resource "davinci_variable" "p1DeviceAuthenticationStatus" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "p1DeviceAuthenticationStatus"
   context        = "flowInstance"
@@ -159,7 +159,7 @@ resource "davinci_variable" "p1DeviceAuthenticationStatus_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "p1DeviceId_flowInstance" {
+resource "davinci_variable" "p1DeviceId" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "p1DeviceId"
   context        = "flowInstance"
@@ -167,7 +167,7 @@ resource "davinci_variable" "p1DeviceId_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "p1RiskEvaluationStatus_flowInstance" {
+resource "davinci_variable" "p1RiskEvaluationStatus" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "p1RiskEvaluationStatus"
   context        = "flowInstance"
@@ -175,7 +175,7 @@ resource "davinci_variable" "p1RiskEvaluationStatus_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "p1RiskLow_flowInstance" {
+resource "davinci_variable" "p1RiskLow" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "p1RiskLow"
   context        = "flowInstance"
@@ -183,7 +183,7 @@ resource "davinci_variable" "p1RiskLow_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "p1RiskMedium_flowInstance" {
+resource "davinci_variable" "p1RiskMedium" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "p1RiskMedium"
   context        = "flowInstance"
@@ -191,7 +191,7 @@ resource "davinci_variable" "p1RiskMedium_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "p1UserId_flowInstance" {
+resource "davinci_variable" "p1UserId" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "p1UserId"
   context        = "flowInstance"
@@ -199,7 +199,7 @@ resource "davinci_variable" "p1UserId_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "pingOneRiskPolicyId_flowInstance" {
+resource "davinci_variable" "pingOneRiskPolicyId" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "pingOneRiskPolicyId"
   context        = "flowInstance"
@@ -207,7 +207,7 @@ resource "davinci_variable" "pingOneRiskPolicyId_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "populationId_flowInstance" {
+resource "davinci_variable" "populationId" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "populationId"
   context        = "flowInstance"
@@ -215,7 +215,7 @@ resource "davinci_variable" "populationId_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "publicKeyCredentialCreationOptions_flowInstance" {
+resource "davinci_variable" "publicKeyCredentialCreationOptions" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "publicKeyCredentialCreationOptions"
   context        = "flowInstance"
@@ -223,7 +223,7 @@ resource "davinci_variable" "publicKeyCredentialCreationOptions_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "publicKeyCredentialRequestOptions_flowInstance" {
+resource "davinci_variable" "publicKeyCredentialRequestOptions" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "publicKeyCredentialRequestOptions"
   context        = "flowInstance"
@@ -231,7 +231,7 @@ resource "davinci_variable" "publicKeyCredentialRequestOptions_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "registrationPopulationId_flowInstance" {
+resource "davinci_variable" "registrationPopulationId" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "registrationPopulationId"
   context        = "flowInstance"
@@ -239,7 +239,7 @@ resource "davinci_variable" "registrationPopulationId_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "relyingParty_flowInstance" {
+resource "davinci_variable" "relyingParty" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "relyingParty"
   context        = "flowInstance"
@@ -247,7 +247,7 @@ resource "davinci_variable" "relyingParty_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "relyingPartyID_flowInstance" {
+resource "davinci_variable" "relyingPartyID" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "relyingPartyID"
   context        = "flowInstance"
@@ -255,7 +255,7 @@ resource "davinci_variable" "relyingPartyID_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "teleportReturnValue_flowInstance" {
+resource "davinci_variable" "teleportReturnValue" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "teleportReturnValue"
   context        = "flowInstance"
@@ -263,7 +263,7 @@ resource "davinci_variable" "teleportReturnValue_flowInstance" {
   type           = "boolean"
 }
 
-resource "davinci_variable" "userAction_flowInstance" {
+resource "davinci_variable" "userAction" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "userAction"
   context        = "flowInstance"
@@ -271,7 +271,7 @@ resource "davinci_variable" "userAction_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "userID_flowInstance" {
+resource "davinci_variable" "userID" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "userID"
   context        = "flowInstance"
@@ -279,7 +279,7 @@ resource "davinci_variable" "userID_flowInstance" {
   type           = "string"
 }
 
-resource "davinci_variable" "verifyCode_flowInstance" {
+resource "davinci_variable" "verifyCode" {
   environment_id = resource.pingone_environment.my_environment.id
   name           = "verifyCode"
   context        = "flowInstance"
