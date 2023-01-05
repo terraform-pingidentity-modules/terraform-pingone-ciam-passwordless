@@ -57,7 +57,7 @@ resource "davinci_variable" "fidoRelyingPartyIds" {
   context        = "company"
   description    = ""
   type           = "object"
-  value          = "{\"mobile\":'auth.pingone.com','desktop':'auth.pingone.com'}"
+  value          = "{\"mobile\":\"auth.pingone.com\",\"desktop\":\"auth.pingone.com\"}"
 
   depends_on = [
     data.davinci_connections.read_all
