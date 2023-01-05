@@ -275,3 +275,30 @@ resource "davinci_flow" "CIAM-Passwordless-003-Register-FIDO-Device" {
   }
 
 }
+
+resource "davinci_flow" "importfrombuild-package" {
+  environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
+  flow_json      = file("${path.module}/flows/importfrombuild-package.json")
+  subflows {
+    subflow_id   = resource.davinci_flow.CIAM-Passwordless-001-Registration.flow_id
+    subflow_name = resource.davinci_flow.CIAM-Passwordless-001-Registration.flow_name
+  }
+  subflows {
+    subflow_id   = resource.davinci_flow.CIAM-Passwordless-001-AuthN.flow_id
+    subflow_name = resource.davinci_flow.CIAM-Passwordless-001-AuthN.flow_name
+  }
+  subflows {
+    subflow_id   = resource.davinci_flow.CIAM-Passwordless-001-Profile-Management.flow_id
+    subflow_name = resource.davinci_flow.CIAM-Passwordless-001-Profile-Management.flow_name
+  }
+  connections {
+    connection_id   = davinci_connection.flowConnector.id
+    connection_name = davinci_connection.flowConnector.name
+  }
+
+  connections {
+    connection_id   = davinci_connection.nodeConnector.id
+    connection_name = davinci_connection.nodeConnector.name
+  }
+
+}
