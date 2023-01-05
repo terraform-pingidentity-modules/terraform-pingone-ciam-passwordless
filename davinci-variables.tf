@@ -5,7 +5,7 @@ resource "davinci_variable" "attestationValue" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
-  value          = "undefined"
+  value          = ""
 
   depends_on = [
     data.davinci_connections.read_all
@@ -18,7 +18,7 @@ resource "davinci_variable" "deviceNickname" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
-  value          = "undefined"
+  value          = ""
 
   depends_on = [
     data.davinci_connections.read_all
@@ -31,7 +31,7 @@ resource "davinci_variable" "emailAddress" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
-  value          = "undefined"
+  value          = ""
 
   depends_on = [
     data.davinci_connections.read_all
@@ -44,7 +44,7 @@ resource "davinci_variable" "fidoButtonState" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
-  value          = "undefined"
+  value          = ""
 
   depends_on = [
     data.davinci_connections.read_all
@@ -57,7 +57,7 @@ resource "davinci_variable" "fidoRelyingPartyIds" {
   context        = "company"
   description    = ""
   type           = "object"
-  value          = "{'mobile':'auth.pingone.com','desktop':'auth.pingone.com'}"
+  value          = "{\"mobile\":'auth.pingone.com','desktop':'auth.pingone.com'}"
 
   depends_on = [
     data.davinci_connections.read_all
@@ -70,7 +70,7 @@ resource "davinci_variable" "p1UserId" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
-  value          = "undefined"
+  value          = ""
 
   depends_on = [
     data.davinci_connections.read_all
@@ -83,7 +83,7 @@ resource "davinci_variable" "verifyCode" {
   context        = "flowInstance"
   description    = ""
   type           = "string"
-  value          = "undefined"
+  value          = ""
 
   depends_on = [
     data.davinci_connections.read_all
