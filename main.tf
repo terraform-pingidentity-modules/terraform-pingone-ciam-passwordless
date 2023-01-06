@@ -10,7 +10,7 @@ terraform {
     }
     davinci = {
       source  = "pingidentity/davinci"
-      version = "~> 0.0.6"
+      version = "~> 0.0.7"
     }
   }
 }
@@ -111,3 +111,10 @@ resource "pingone_role_assignment_user" "admin_sso" {
   role_id              = data.pingone_role.identity_data_admin.id
   scope_environment_id = resource.pingone_environment.my_environment.id
 }
+
+
+// This simple read action is used to as a precursor to all other data/resources
+data "davinci_connections" "read_all" {
+  environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
+}
+
