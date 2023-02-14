@@ -1,70 +1,58 @@
 
-resource "davinci_flow" "_Documentation" {
+resource "davinci_flow" "flow-CIAM-Passwordless-000-Demo" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/_Documentation.json")
-  depends_on = [
-    data.davinci_connections.read_all
-  ]
-}
-
-resource "davinci_flow" "CIAM-Passwordless-000-Demo" {
-  environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-000-Demo.json")
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-001-Registration.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-001-Registration.flow_name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-000-Demo.json")
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-001-Registration.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-001-Registration.name
   }
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-001-AuthN.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-001-AuthN.flow_name
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-001-AuthN.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-001-AuthN.name
   }
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-001-Profile-Management.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-001-Profile-Management.flow_name
-  }
-  connections {
-    connection_id   = davinci_connection.flowConnector.id
-    connection_name = davinci_connection.flowConnector.name
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-001-Profile-Management.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-001-Profile-Management.name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
   }
 
-  depends_on = [
-    data.davinci_connections.read_all
-  ]
-}
-
-resource "davinci_flow" "CIAM-Passwordless-001-AuthN" {
-  environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-001-AuthN.json")
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-002-AuthN-OTP.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-002-AuthN-OTP.flow_name
-  }
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-002-AuthN-FIDO.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-002-AuthN-FIDO.flow_name
-  }
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-002-AuthN-MagicLink.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-002-AuthN-MagicLink.flow_name
-  }
-  connections {
-    connection_id   = davinci_connection.pingOneMfaConnector.id
-    connection_name = davinci_connection.pingOneMfaConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Error-Customize.connections)[0].id
+    name = tolist(data.davinci_connections.Error-Customize.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.flowConnector.id
-    connection_name = davinci_connection.flowConnector.name
+  connection_link {
+    id   = resource.davinci_connection.Flow.id
+    name = resource.davinci_connection.Flow.name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.PingOne.connections)[0].id
+    name = tolist(data.davinci_connections.PingOne.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Variables.connections)[0].id
+    name = tolist(data.davinci_connections.Variables.connections)[0].name
   }
 
   depends_on = [
@@ -72,38 +60,55 @@ resource "davinci_flow" "CIAM-Passwordless-001-AuthN" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-001-Manage-Devices" {
+resource "davinci_flow" "flow-CIAM-Passwordless-001-AuthN" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-001-Manage-Devices.json")
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-002-Register-OTP.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-002-Register-OTP.flow_name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-001-AuthN.json")
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-002-AuthN-OTP.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-002-AuthN-OTP.name
   }
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-002-Register-FIDO-Mobile.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-002-Register-FIDO-Mobile.flow_name
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-002-AuthN-FIDO.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-002-AuthN-FIDO.name
   }
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-003-Register-FIDO-Device.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-003-Register-FIDO-Device.flow_name
-  }
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-002-Edit-Device.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-002-Edit-Device.flow_name
-  }
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-002-AuthN-MagicLink.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-002-AuthN-MagicLink.name
   }
 
-  connections {
-    connection_id   = davinci_connection.pingOneMfaConnector.id
-    connection_name = davinci_connection.pingOneMfaConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.flowConnector.id
-    connection_name = davinci_connection.flowConnector.name
+  connection_link {
+    id   = resource.davinci_connection.Flow.id
+    name = resource.davinci_connection.Flow.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.PingOne.connections)[0].id
+    name = tolist(data.davinci_connections.PingOne.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.PingOne-MFA.id
+    name = resource.davinci_connection.PingOne-MFA.name
   }
 
   depends_on = [
@@ -111,21 +116,59 @@ resource "davinci_flow" "CIAM-Passwordless-001-Manage-Devices" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-001-Profile-Management" {
+resource "davinci_flow" "flow-CIAM-Passwordless-001-Manage-Devices" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-001-Profile-Management.json")
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-001-Manage-Devices.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-001-Manage-Devices.flow_name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-001-Manage-Devices.json")
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-002-Register-OTP.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-002-Register-OTP.name
   }
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-002-Register-FIDO-Mobile.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-002-Register-FIDO-Mobile.name
+  }
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-003-Register-FIDO-Device.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-003-Register-FIDO-Device.name
+  }
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-002-Edit-Device.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-002-Edit-Device.name
   }
 
-  connections {
-    connection_id   = davinci_connection.flowConnector.id
-    connection_name = davinci_connection.flowConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Flow.id
+    name = resource.davinci_connection.Flow.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.PingOne.connections)[0].id
+    name = tolist(data.davinci_connections.PingOne.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.PingOne-MFA.id
+    name = resource.davinci_connection.PingOne-MFA.name
   }
 
   depends_on = [
@@ -133,21 +176,47 @@ resource "davinci_flow" "CIAM-Passwordless-001-Profile-Management" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-001-Registration" {
+resource "davinci_flow" "flow-CIAM-Passwordless-001-Profile-Management" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-001-Registration.json")
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-002-Register-OTP.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-002-Register-OTP.flow_name
-  }
-  connections {
-    connection_id   = davinci_connection.flowConnector.id
-    connection_name = davinci_connection.flowConnector.name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-001-Profile-Management.json")
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-001-Manage-Devices.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-001-Manage-Devices.name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Error-Customize.connections)[0].id
+    name = tolist(data.davinci_connections.Error-Customize.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Flow.id
+    name = resource.davinci_connection.Flow.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.PingOne.connections)[0].id
+    name = tolist(data.davinci_connections.PingOne.connections)[0].name
   }
 
   depends_on = [
@@ -155,27 +224,47 @@ resource "davinci_flow" "CIAM-Passwordless-001-Registration" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-002-AuthN-FIDO" {
+resource "davinci_flow" "flow-CIAM-Passwordless-001-Registration" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-002-AuthN-FIDO.json")
-  connections {
-    connection_id   = davinci_connection.pingOneMfaConnector.id
-    connection_name = davinci_connection.pingOneMfaConnector.name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-001-Registration.json")
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-002-Register-OTP.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-002-Register-OTP.name
   }
 
-  connections {
-    connection_id   = davinci_connection.flowConnector.id
-    connection_name = davinci_connection.flowConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.challengeConnector.id
-    connection_name = davinci_connection.challengeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Error-Customize.connections)[0].id
+    name = tolist(data.davinci_connections.Error-Customize.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = resource.davinci_connection.Flow.id
+    name = resource.davinci_connection.Flow.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.PingOne.connections)[0].id
+    name = tolist(data.davinci_connections.PingOne.connections)[0].name
   }
 
   depends_on = [
@@ -183,27 +272,48 @@ resource "davinci_flow" "CIAM-Passwordless-002-AuthN-FIDO" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-002-AuthN-MagicLink" {
+resource "davinci_flow" "flow-CIAM-Passwordless-002-AuthN-FIDO" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-002-AuthN-MagicLink.json")
-  connections {
-    connection_id   = davinci_connection.flowConnector.id
-    connection_name = davinci_connection.flowConnector.name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-002-AuthN-FIDO.json")
+
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.challengeConnector.id
-    connection_name = davinci_connection.challengeConnector.name
+  connection_link {
+    id   = resource.davinci_connection.Challenge.id
+    name = resource.davinci_connection.Challenge.name
   }
 
-  connections {
-    connection_id   = davinci_connection.notificationsConnector.id
-    connection_name = davinci_connection.notificationsConnector.name
+  connection_link {
+    id   = resource.davinci_connection.Flow.id
+    name = resource.davinci_connection.Flow.name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.PingOne-MFA.id
+    name = resource.davinci_connection.PingOne-MFA.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Variables.connections)[0].id
+    name = tolist(data.davinci_connections.Variables.connections)[0].name
   }
 
   depends_on = [
@@ -211,17 +321,48 @@ resource "davinci_flow" "CIAM-Passwordless-002-AuthN-MagicLink" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-002-AuthN-OTP" {
+resource "davinci_flow" "flow-CIAM-Passwordless-002-AuthN-MagicLink" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-002-AuthN-OTP.json")
-  connections {
-    connection_id   = davinci_connection.pingOneMfaConnector.id
-    connection_name = davinci_connection.pingOneMfaConnector.name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-002-AuthN-MagicLink.json")
+
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = resource.davinci_connection.Challenge.id
+    name = resource.davinci_connection.Challenge.name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Flow.id
+    name = resource.davinci_connection.Flow.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.PingOne.connections)[0].id
+    name = tolist(data.davinci_connections.PingOne.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.PingOne-Notifications.id
+    name = resource.davinci_connection.PingOne-Notifications.name
   }
 
   depends_on = [
@@ -229,17 +370,38 @@ resource "davinci_flow" "CIAM-Passwordless-002-AuthN-OTP" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-002-Edit-Device" {
+resource "davinci_flow" "flow-CIAM-Passwordless-002-AuthN-OTP" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-002-Edit-Device.json")
-  connections {
-    connection_id   = davinci_connection.pingOneMfaConnector.id
-    connection_name = davinci_connection.pingOneMfaConnector.name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-002-AuthN-OTP.json")
+
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Error-Customize.connections)[0].id
+    name = tolist(data.davinci_connections.Error-Customize.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.PingOne-MFA.id
+    name = resource.davinci_connection.PingOne-MFA.name
   }
 
   depends_on = [
@@ -247,26 +409,38 @@ resource "davinci_flow" "CIAM-Passwordless-002-Edit-Device" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-002-Register-FIDO-Mobile" {
+resource "davinci_flow" "flow-CIAM-Passwordless-002-Edit-Device" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-002-Register-FIDO-Mobile.json")
-  subflows {
-    subflow_id   = resource.davinci_flow.CIAM-Passwordless-003-Register-FIDO-Device.flow_id
-    subflow_name = resource.davinci_flow.CIAM-Passwordless-003-Register-FIDO-Device.flow_name
-  }
-  connections {
-    connection_id   = davinci_connection.flowConnector.id
-    connection_name = davinci_connection.flowConnector.name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-002-Edit-Device.json")
+
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.challengeConnector.id
-    connection_name = davinci_connection.challengeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Error-Customize.connections)[0].id
+    name = tolist(data.davinci_connections.Error-Customize.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.PingOne-MFA.id
+    name = resource.davinci_connection.PingOne-MFA.name
   }
 
   depends_on = [
@@ -274,17 +448,47 @@ resource "davinci_flow" "CIAM-Passwordless-002-Register-FIDO-Mobile" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-002-Register-OTP" {
+resource "davinci_flow" "flow-CIAM-Passwordless-002-Register-FIDO-Mobile" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-002-Register-OTP.json")
-  connections {
-    connection_id   = davinci_connection.pingOneMfaConnector.id
-    connection_name = davinci_connection.pingOneMfaConnector.name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-002-Register-FIDO-Mobile.json")
+  subflow_link {
+    id   = resource.davinci_flow.flow-CIAM-Passwordless-003-Register-FIDO-Device.id
+    name = resource.davinci_flow.flow-CIAM-Passwordless-003-Register-FIDO-Device.name
   }
 
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Challenge.id
+    name = resource.davinci_connection.Challenge.name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Flow.id
+    name = resource.davinci_connection.Flow.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Variables.connections)[0].id
+    name = tolist(data.davinci_connections.Variables.connections)[0].name
   }
 
   depends_on = [
@@ -292,22 +496,97 @@ resource "davinci_flow" "CIAM-Passwordless-002-Register-OTP" {
   ]
 }
 
-resource "davinci_flow" "CIAM-Passwordless-003-Register-FIDO-Device" {
+resource "davinci_flow" "flow-CIAM-Passwordless-002-Register-OTP" {
   environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
-  flow_json      = file("${path.module}/flows/CIAM-Passwordless-003-Register-FIDO-Device.json")
-  connections {
-    connection_id   = davinci_connection.nodeConnector.id
-    connection_name = davinci_connection.nodeConnector.name
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-002-Register-OTP.json")
+
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.pingOneMfaConnector.id
-    connection_name = davinci_connection.pingOneMfaConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Error-Customize.connections)[0].id
+    name = tolist(data.davinci_connections.Error-Customize.connections)[0].name
   }
 
-  connections {
-    connection_id   = davinci_connection.devicePolicyConnector.id
-    connection_name = davinci_connection.devicePolicyConnector.name
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.PingOne.connections)[0].id
+    name = tolist(data.davinci_connections.PingOne.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.PingOne-MFA.id
+    name = resource.davinci_connection.PingOne-MFA.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Variables.connections)[0].id
+    name = tolist(data.davinci_connections.Variables.connections)[0].name
+  }
+
+  depends_on = [
+    data.davinci_connections.read_all
+  ]
+}
+
+resource "davinci_flow" "flow-CIAM-Passwordless-003-Register-FIDO-Device" {
+  environment_id = resource.pingone_role_assignment_user.admin_sso.scope_environment_id
+  flow_json      = file("${path.module}/flows/flow-CIAM-Passwordless-003-Register-FIDO-Device.json")
+
+  connection_link {
+    id   = tolist(data.davinci_connections.annotationConnector.connections)[0].id
+    name = tolist(data.davinci_connections.annotationConnector.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Device-Policy.id
+    name = resource.davinci_connection.Device-Policy.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Error-Customize.connections)[0].id
+    name = tolist(data.davinci_connections.Error-Customize.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Functions.connections)[0].id
+    name = tolist(data.davinci_connections.Functions.connections)[0].name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Http.connections)[0].id
+    name = tolist(data.davinci_connections.Http.connections)[0].name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.Node.id
+    name = resource.davinci_connection.Node.name
+  }
+
+  connection_link {
+    id   = resource.davinci_connection.PingOne-MFA.id
+    name = resource.davinci_connection.PingOne-MFA.name
+  }
+
+  connection_link {
+    id   = tolist(data.davinci_connections.Variables.connections)[0].id
+    name = tolist(data.davinci_connections.Variables.connections)[0].name
   }
 
   depends_on = [
